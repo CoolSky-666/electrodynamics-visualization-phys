@@ -67,21 +67,36 @@ $$\boxed{\ B_z(0,0,z)=\frac{2\mu_0 I a^2}{\pi\,(a^2+z^2)\sqrt{2a^2+z^2}}\ }.$$
 
 ## 4. 运行方式
 
-脚本会生成一个 $3\times 3$ 子图：
+本目录拆分为 3 个脚本，分别对应：方形线圈、圆形线圈、任意形状线圈。每个脚本都会生成 $1\times 3$ 子图（$\varphi_m$ 等势线、$B_z$ 色图、平面内投影场线），并默认保存图片到当前目录。
 
-- 每一行对应一种线圈：方形、圆形、任意形状
-- 每一列依次为：$\varphi_m$ 等势线、$B_z$ 色图、平面内投影场线（$B_x,B_y$ 的流线）
-
-运行：
+运行（方形）：
 
 ```bash
-python solid_angle_coils.py --save --no-show
+python solid_angle_coil_square.py --no-show
 ```
 
-参数示例：
+运行（圆形）：
 
 ```bash
-python solid_angle_coils.py --I 1 --mu0 1 --z0 0.6 --side 2.0 --radius 1.0 --grid 240 --lim 2.5 --save --no-show
+python solid_angle_coil_circle.py --no-show
 ```
 
-输出图片默认保存为 `solid_angle_coils.png`（保存在当前目录）。
+运行（任意形状，使用脚本自带示例曲线）：
+
+```bash
+python solid_angle_coil_arbitrary.py --no-show
+```
+
+参数示例（通用）：
+
+```bash
+python solid_angle_coil_circle.py --I 1 --mu0 1 --z0 0.6 --radius 1.0 --grid 240 --lim 2.5 --no-show
+```
+
+任意形状也可以从顶点文件读取（两列 `x y` 或三列 `x y z`；支持 `.txt`/`.dat`/`.csv` 以及 `.npy`）：
+
+```bash
+python solid_angle_coil_arbitrary.py --vertices vertices.txt --no-show
+```
+
+默认输出文件名分别为 `solid_angle_coil_square.png`、`solid_angle_coil_circle.png`、`solid_angle_coil_arbitrary.png`。
