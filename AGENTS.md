@@ -110,3 +110,21 @@
 - 若使用数值梯度：
   - 显式传入网格步长（`np.gradient(phi, dy, dx)`）
   - 必要时对源附近做 `np.nan_to_num` 或掩膜，避免污染流线。
+
+---
+
+## 7. Git 同步工作流
+
+本项目后续所有修改都通过 Git 进行版本管理与同步（push 到远程仓库）。
+
+- 首次设置（本地仓库在 `E:\python\Physic\Electrodynamics`）：
+  - `git init`
+  - `git remote add origin <repo-url>`
+  - `git add .`
+  - `git commit -m "Initial commit"`
+  - `git push -u origin main`
+- 日常更新：
+  - `git status`
+  - `git add -A`
+  - `git commit -m "<message>"`
+  - `git push`
